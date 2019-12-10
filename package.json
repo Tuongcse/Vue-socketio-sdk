@@ -1,10 +1,10 @@
 {
   "name": "vue-socketio-sdk",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "author": "Nguyen Van Tuong",
   "license": "MIT",
   "description": "A vue socketio sdk",
-  "main": "main.js",
+  "main": "src/main.js",
   "dependencies": {
     "socket.io-client": "^2.3.0"
   },
