@@ -1,10 +1,8 @@
 {
   "name": "vue-socketio-sdk",
-  "version": "1.0.0",
-  "author": {
-    "name": "Nguyen Van Tuong"
-  },
-  "license": "ISC",
+  "version": "1.0.2",
+  "author": "Nguyen Van Tuong",
+  "license": "MIT",
   "description": "A vue socketio sdk",
   "main": "main.js",
   "dependencies": {
@@ -15,5 +13,6 @@
   },
   "scripts": {
     "test": "echo test"
-  }
+  },
+  "repository": "git@github.com:Tuongcse/Vue-socketio-sdk.git"
 }
