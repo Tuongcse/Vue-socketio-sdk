@@ -1,6 +1,6 @@
 {
   "name": "vue-socketio-sdk",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "author": "Nguyen Van Tuong",
   "license": "MIT",
   "description": "A vue socketio sdk",
