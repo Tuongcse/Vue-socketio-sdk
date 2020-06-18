@@ -16,14 +16,14 @@ class VueSocketIO {
    * @param  {Array} callbacks: Callbacks that mapped with events
    */
   addEventListeners(events, callbacks) {
-    events.map((event, idx) => this.io.addEventListener(event, callbacks[idx]))
+    events.map((event, idx) => this.io.addEventListener(event, callbacks[idx]));
   }
 
   /**
    * @param  {Array} events: List of events that you want to unsubscribe
    */
   removeEventListeners(events) {
-    events.map(event => this.io.removeEventListener(event));
+    events.map((event) => this.io.removeEventListener(event));
   }
 
   /**
@@ -32,7 +32,36 @@ class VueSocketIO {
    * @return An array of callback Functions, or an empty array if we don't have any
    */
   listeners(event) {
-    return this.io.listeners(event)
+    return this.io.listeners(event);
+  }
+
+  /**
+   * An override of the base emit. If the event is one of:
+   *     connect
+   *     connect_error
+   *     connect_timeout
+   *     connecting
+   *     disconnect
+   *     error
+   *     reconnect
+   *     reconnect_attempt
+   *     reconnect_failed
+   *     reconnect_error
+   *     reconnecting
+   *     ping
+   *     pong
+   * then the event is emitted normally. Otherwise, if we're connected, the
+   * event is sent. Otherwise, it's buffered.
+   *
+   * If the last argument is a function, then it will be called
+   * as an 'ack' when the response is received. The parameter(s) of the
+   * ack will be whatever data is returned from the event
+   * @param event The event that we're emitting
+   * @param args Optional arguments to send with the event
+   * @return This Socket
+   */
+  emit(event, ...args) {
+    return this.io.emit(event, ...args);
   }
 
   /**
@@ -40,7 +69,7 @@ class VueSocketIO {
    * @return This Emitter
    */
   removeAllListener() {
-    return this.io.removeAllListeners()
+    return this.io.removeAllListeners();
   }
 
   /**
@@ -48,8 +77,8 @@ class VueSocketIO {
    * @return this socket
    */
   disconnect() {
-    this.removeAllListener()
-    return this.io.close()
+    this.removeAllListener();
+    return this.io.close();
   }
 
   /**
@@ -57,8 +86,8 @@ class VueSocketIO {
    * @return this socket
    */
   connect() {
-    return this.io.open()
+    return this.io.open();
   }
 }
 
-export default VueSocketIO
+export default VueSocketIO;
